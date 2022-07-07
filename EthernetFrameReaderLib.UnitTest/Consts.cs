@@ -28,5 +28,9 @@ namespace EthernetFrameReaderLib.UnitTest
 		public static byte[] TCPSegmentTooSmall = new byte[19];
 		public static byte[] TCPSegment1 = packetReader.Read(Packet1).Payload;
 		public static byte[] TCPSegment2 = packetReader.Read(Packet3).Payload;
+
+		public static byte[] UDPSegmentTooSmall = new byte[7];
+		public static byte[] UDPSegment1 = packetReader.Read(Packet2).Payload;
+
 	}
 }

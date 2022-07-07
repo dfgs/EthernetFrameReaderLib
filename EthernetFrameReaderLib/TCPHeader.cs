@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EthernetFrameReaderLib
 {
-	public struct TCPHeader
+	public struct TCPHeader: ISegmentHeader
 	{
 		public ushort SourcePort
 		{

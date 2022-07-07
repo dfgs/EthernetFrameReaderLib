@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace EthernetFrameReaderLib
 {
-	public struct TCPSegment: ISegment
+	public struct UDPSegment: ISegment
 	{
 		ISegmentHeader ISegment.Header => Header;
-		public TCPHeader Header
+		public UDPHeader Header
 		{
 			get;
 			private set;
@@ -20,7 +20,9 @@ namespace EthernetFrameReaderLib
 			get;
 			private set;
 		}
-		public TCPSegment(TCPHeader Header, byte[] Payload)
+
+
+		public UDPSegment(UDPHeader Header, byte[] Payload)
 		{
 			if (Payload == null) throw new ArgumentNullException(nameof(Payload));
 			this.Header = Header;this.Payload = Payload;

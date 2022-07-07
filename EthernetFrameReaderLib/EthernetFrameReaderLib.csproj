@@ -44,8 +44,14 @@
     <Compile Include="Consts.cs" />
     <Compile Include="Frame.cs" />
     <Compile Include="FrameHeader.cs" />
+    <Compile Include="ISegment.cs" />
+    <Compile Include="IUDPSegmentReader.cs" />
     <Compile Include="ITCPSegmentReader.cs" />
     <Compile Include="IPAddress.cs" />
+    <Compile Include="ISegmentHeader.cs" />
+    <Compile Include="UDPSegmentReader.cs" />
+    <Compile Include="UDPSegment.cs" />
+    <Compile Include="UDPHeader.cs" />
     <Compile Include="TCPHeaderFlag.cs" />
     <Compile Include="TCPSegmentReader.cs" />
     <Compile Include="TCPSegment.cs" />
