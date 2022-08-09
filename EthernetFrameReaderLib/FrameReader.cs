@@ -14,6 +14,7 @@ namespace EthernetFrameReaderLib
 			FrameHeader header;
 			EtherTypes etherType;
 			byte[] payload;
+			ushort vlanID;
 			//uint CRC;
 
 			if (Data == null) throw new ArgumentNullException(nameof(Data));
@@ -30,11 +31,22 @@ namespace EthernetFrameReaderLib
 			{
 				throw new ArgumentOutOfRangeException("Invalid ethertype");
 			}
+
 			header = new FrameHeader(source, destination, etherType);
-			payload = Data.Skip(14).Take(Data.Length - 14).ToArray();
+			if (etherType==EtherTypes.VLANTagged)
+			{
+				vlanID = (ushort)((Data[14] << 8) + Data[15]);
+				payload = Data.Skip(18).Take(Data.Length - 18).ToArray();
+			}
+			else
+			{
+				vlanID = 0;
+				payload = Data.Skip(14).Take(Data.Length - 14).ToArray();
+			}
+
 			//CRC = (uint)(Data[Data.Length - 4]<<24) + (uint)(Data[Data.Length - 3] << 16) + (uint)(Data[Data.Length - 2] << 8) + (uint)(Data[Data.Length - 1]) ;
-			
-			return new Frame(header,payload);
+
+			return new Frame(header,vlanID,payload);
 		}
 	}
 }

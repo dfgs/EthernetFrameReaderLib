@@ -10,7 +10,7 @@ namespace EthernetFrameReaderLib.UnitTest
 		[TestMethod]
 		public void ShouldCheckIfPayloadIsNull()
 		{
-			Assert.ThrowsException<ArgumentNullException>(() => new Frame(new FrameHeader(), null));
+			Assert.ThrowsException<ArgumentNullException>(() => new Frame(new FrameHeader(),0, null));
 		}
 
 

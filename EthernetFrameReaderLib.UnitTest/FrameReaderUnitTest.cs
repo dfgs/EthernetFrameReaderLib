@@ -38,6 +38,21 @@ namespace EthernetFrameReaderLib.UnitTest
 			Assert.AreEqual(40, frame.Payload.Length);
 			Assert.AreEqual(0x45, frame.Payload[0]);
 		}
+		[TestMethod]
+		public void ShouldReadFrame4()
+		{
+			FrameReader reader;
+			Frame frame;
+
+			reader = new FrameReader();
+			frame = reader.Read(Consts.Frame4);
+			Assert.AreEqual("00:00:00:00:00:00", frame.Header.SourceAddress.ToString());
+			Assert.AreEqual("00:00:00:00:00:00", frame.Header.DestinationAddress.ToString());
+			Assert.AreEqual(EtherTypes.VLANTagged, frame.Header.EtherType);
+			Assert.AreEqual(2110, frame.VlanID);
+			Assert.AreEqual(1133, frame.Payload.Length);
+			Assert.AreEqual(0x45, frame.Payload[0]);
+		}
 
 	}
 }

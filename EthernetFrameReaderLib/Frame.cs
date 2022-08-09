@@ -13,7 +13,12 @@ namespace EthernetFrameReaderLib
 			get;
 			private set;
 		}
-		
+		public ushort VlanID
+		{
+			get;
+			private set;
+		}
+
 		public byte[] Payload
 		{
 			get;
@@ -25,10 +30,11 @@ namespace EthernetFrameReaderLib
 			private set;
 		}*/
 
-		public Frame(FrameHeader Header, byte[] Payload)
+		public Frame(FrameHeader Header,ushort VlanID, byte[] Payload)
 		{
 			if (Payload == null) throw new ArgumentNullException(nameof(Payload));
-			this.Header = Header;this.Payload = Payload;//this.CRC = CRC;
+
+			this.Header = Header;this.VlanID = VlanID; this.Payload = Payload;//this.CRC = CRC;
 		}
 	}
 }

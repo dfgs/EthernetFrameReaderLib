@@ -14,6 +14,7 @@ namespace EthernetFrameReaderLib
 			get;
 			private set;
 		}
+		
 
 		public byte[] Payload
 		{
