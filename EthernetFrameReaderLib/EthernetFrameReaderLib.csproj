@@ -41,30 +41,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ACDR\ACDR.cs" />
+    <Compile Include="ACDR\IACDRReader.cs" />
+    <Compile Include="ACDR\ACDRHeader.cs" />
     <Compile Include="Consts.cs" />
-    <Compile Include="Frame.cs" />
-    <Compile Include="FrameHeader.cs" />
-    <Compile Include="ISegment.cs" />
-    <Compile Include="IUDPSegmentReader.cs" />
-    <Compile Include="ITCPSegmentReader.cs" />
-    <Compile Include="IPAddress.cs" />
-    <Compile Include="ISegmentHeader.cs" />
-    <Compile Include="UDPSegmentReader.cs" />
-    <Compile Include="UDPSegment.cs" />
-    <Compile Include="UDPHeader.cs" />
-    <Compile Include="TCPHeaderFlag.cs" />
-    <Compile Include="TCPSegmentReader.cs" />
-    <Compile Include="TCPSegment.cs" />
-    <Compile Include="PacketHeader.cs" />
-    <Compile Include="PacketReader.cs" />
-    <Compile Include="FrameReader.cs" />
-    <Compile Include="IPacketReader.cs" />
-    <Compile Include="IFrameReader.cs" />
-    <Compile Include="MACAddress.cs" />
-    <Compile Include="Packet.cs" />
+    <Compile Include="Frame\Frame.cs" />
+    <Compile Include="Frame\FrameHeader.cs" />
+    <Compile Include="Segment\ISegment.cs" />
+    <Compile Include="Segment\IUDPSegmentReader.cs" />
+    <Compile Include="Segment\ITCPSegmentReader.cs" />
+    <Compile Include="Packet\IPAddress.cs" />
+    <Compile Include="Segment\ISegmentHeader.cs" />
+    <Compile Include="Segment\UDPSegmentReader.cs" />
+    <Compile Include="Segment\UDPSegment.cs" />
+    <Compile Include="Segment\UDPHeader.cs" />
+    <Compile Include="Segment\TCPHeaderFlag.cs" />
+    <Compile Include="Segment\TCPSegmentReader.cs" />
+    <Compile Include="Segment\TCPSegment.cs" />
+    <Compile Include="Packet\PacketHeader.cs" />
+    <Compile Include="Packet\PacketReader.cs" />
+    <Compile Include="Frame\FrameReader.cs" />
+    <Compile Include="Packet\IPacketReader.cs" />
+    <Compile Include="Frame\IFrameReader.cs" />
+    <Compile Include="Frame\MACAddress.cs" />
+    <Compile Include="Packet\Packet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TCPHeader.cs" />
-    <Compile Include="TypeOfService.cs" />
+    <Compile Include="Segment\TCPHeader.cs" />
+    <Compile Include="Packet\TypeOfService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ACDR\packet-acdr.c" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
