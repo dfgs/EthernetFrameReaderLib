@@ -42,6 +42,7 @@ namespace EthernetFrameReaderLib.UnitTest
 			Assert.AreEqual(TracePoints.DspDecoder, ACDR.Header.TracePoint);
 			Assert.AreEqual(MediaTypes.ACDR_RTP, ACDR.Header.MediaType);
 			Assert.AreEqual(9, ACDR.Header.HeaderExtensionLength);
+			Assert.AreEqual("CD91EB:43:32054343", ACDR.FullSessionID.ToString());
 
 
 		}

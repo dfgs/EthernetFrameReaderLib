@@ -13,16 +13,20 @@ namespace EthernetFrameReaderLib
 			get;
 			private set;
 		}
-
+		public FullSessionID FullSessionID
+		{
+			get;
+			private set;
+		}
 		public byte[] Payload
 		{
 			get;
 			private set;
 		}
-		public ACDR(ACDRHeader Header, byte[] Payload)
+		public ACDR(ACDRHeader Header,FullSessionID FullSessionID, byte[] Payload)
 		{
 			if (Payload == null) throw new ArgumentNullException(nameof(Payload));
-			this.Header = Header; this.Payload = Payload;
+			this.Header = Header;this.FullSessionID = FullSessionID; this.Payload = Payload;
 
 		}
 

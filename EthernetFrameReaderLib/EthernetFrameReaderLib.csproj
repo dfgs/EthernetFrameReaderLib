@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ACDR\ACDR.cs" />
+    <Compile Include="ACDR\SessionID.cs" />
+    <Compile Include="ACDR\BoardID.cs" />
+    <Compile Include="ACDR\FullSessionID.cs" />
     <Compile Include="ACDR\IACDRReader.cs" />
     <Compile Include="ACDR\ACDRHeader.cs" />
     <Compile Include="ACDR\ACDRReader.cs" />

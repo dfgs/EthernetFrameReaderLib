@@ -53,11 +53,12 @@ namespace EthernetFrameReaderLib
 			get;
 			private set;
 		}
-
-		public ACDRHeader(byte Version,uint TimeStamp,ushort SequenceNumber,uint SourceID,uint DestID,byte ExtraData,TracePoints TracePoint,MediaTypes MediaType,byte HeaderExtensionLength)
+		
+		public ACDRHeader(byte Version, uint TimeStamp, ushort SequenceNumber, uint SourceID, uint DestID, byte ExtraData, TracePoints TracePoint, MediaTypes MediaType, byte HeaderExtensionLength)
 		{
 			this.Version = Version;this.TimeStamp = TimeStamp;this.SequenceNumber=SequenceNumber;this.SourceID=SourceID;this.DestID=DestID;
 			this.ExtraData=ExtraData;this.TracePoint=TracePoint;this.MediaType=MediaType;this.HeaderExtensionLength=HeaderExtensionLength;
+			
 		}
 	}
 }
