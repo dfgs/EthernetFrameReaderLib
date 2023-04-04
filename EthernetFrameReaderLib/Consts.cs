@@ -66,5 +66,7 @@ namespace EthernetFrameReaderLib
 		RedundancyTag = 0xF1C1
 	};
 
+	public enum TracePoints { TCP = 6, UDP = 17, ICMP = 1 }
+	public enum MediaTypes { TCP = 6, UDP = 17, ICMP = 1 }
 
 }

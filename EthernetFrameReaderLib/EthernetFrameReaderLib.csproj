@@ -44,6 +44,7 @@
     <Compile Include="ACDR\ACDR.cs" />
     <Compile Include="ACDR\IACDRReader.cs" />
     <Compile Include="ACDR\ACDRHeader.cs" />
+    <Compile Include="ACDR\ACDRReader.cs" />
     <Compile Include="Consts.cs" />
     <Compile Include="Frame\Frame.cs" />
     <Compile Include="Frame\FrameHeader.cs" />
