@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Consts.cs" />
     <Compile Include="ACDRUnitTest.cs" />
+    <Compile Include="ACDRReaderUnitTest.cs" />
     <Compile Include="UDPSegmentReaderUnitTest.cs" />
     <Compile Include="TCPSegmentReaderUnitTest.cs" />
     <Compile Include="UDPSegmentUnitTest.cs" />

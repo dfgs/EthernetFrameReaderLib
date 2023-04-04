@@ -28,10 +28,10 @@ namespace EthernetFrameReaderLib
 			if (Data.Length<19) throw new ArgumentOutOfRangeException(nameof(Data));
 
 			version = Data[0];
-			timeStamp = (uint)((Data[1] << 3) + (Data[2] << 2) + (Data[3] << 1) + (Data[4]));
-			sequenceNumber = (ushort)((Data[5] << 1) + (Data[6]));
-			sourceID = (uint)((Data[7] << 3) + (Data[8] << 2) + (Data[9] << 1) + (Data[10]));
-			destID = (uint)((Data[11] << 3) + (Data[12] << 2) + (Data[13] << 1) + (Data[14]));
+			timeStamp = (uint)((Data[1] << 24) + (Data[2] << 16) + (Data[3] << 8) + (Data[4]));
+			sequenceNumber = (ushort)((Data[5] << 8) + (Data[6]));
+			sourceID = (uint)((Data[7] << 24) + (Data[8] << 16) + (Data[9] << 8) + (Data[10]));
+			destID = (uint)((Data[11] << 24) + (Data[12] << 16) + (Data[13] << 8) + (Data[14]));
 			extraData = Data[15];
 
 			try
