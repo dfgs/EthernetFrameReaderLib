@@ -1,6 +1,6 @@
 ﻿namespace BigEndianReaderLib
 {
-	public class Class1
+	public interface IBigEndianReader
 	{
 
 	}
