@@ -47,5 +47,16 @@ namespace BigEndianReaderLib
 			if (position >= buffer.Length - 7) throw new InvalidOperationException("End of buffer reached");
 			return ( ((ulong)buffer[position++] << 56) + ((ulong)buffer[position++] << 48) + ((ulong)buffer[position++] << 40) + ((ulong)buffer[position++] << 32) + ((ulong)buffer[position++] << 24) + ((ulong)buffer[position++] << 16) + ((ulong)buffer[position++] << 8) + (ulong)buffer[position++]);
 		}
+
+		public string ReadString(int Length, Encoding Encoding)
+		{
+			string value;
+			if (position > buffer.Length - Length) throw new InvalidOperationException("End of buffer reached");
+			value=Encoding.GetString( buffer.Skip(position).Take(Length).ToArray());
+			position += Length;
+			return value;
+		}
+
+
 	}
 }

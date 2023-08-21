@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace BigEndianReaderLib.UnitTest
 {
 	[TestClass]
@@ -193,6 +195,30 @@ namespace BigEndianReaderLib.UnitTest
 
 			
 		}
+
+
+		[TestMethod]
+		public void ShouldNotReadStringWhenEndOfBufferIsReached()
+		{
+			byte[] buffer = new byte[3];
+			BigEndianReader reader;
+
+			reader = new BigEndianReader(buffer);
+			Assert.ThrowsException<InvalidOperationException>(() => reader.ReadString(4,Encoding.ASCII));
+		}
+
+		[TestMethod]
+		public void ShouldReadString()
+		{
+			byte[] buffer = Encoding.ASCII.GetBytes("abc");
+			BigEndianReader reader;
+
+			reader = new BigEndianReader(buffer);
+			Assert.AreEqual("abc", reader.ReadString(3,Encoding.ASCII));
+		}
+
+
+
 
 	}
 }
