@@ -14,6 +14,10 @@ namespace BigEndianReaderLib
 		{
 			get => position;
 		}
+		public int Length
+		{
+			get => buffer.Length;
+		}
 
 		public BigEndianReader(byte[] Buffer) 
 		{ 

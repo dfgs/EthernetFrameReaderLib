@@ -8,6 +8,11 @@ namespace BigEndianReaderLib
 		{
 			get;
 		}
+		int Length
+		{
+			get;
+		}
+
 		byte ReadByte();
 		ushort ReadUInt16();
 		uint ReadUInt24();
