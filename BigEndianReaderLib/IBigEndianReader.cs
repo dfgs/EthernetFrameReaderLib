@@ -9,6 +9,9 @@ namespace BigEndianReaderLib
 		uint ReadUInt24();
 		uint ReadUInt32();
 		ulong ReadUInt64();
+		short ReadInt16();
+		int ReadInt32();
+		long ReadInt64();
 
 		string ReadString(int Length,Encoding Encoding);
 	}

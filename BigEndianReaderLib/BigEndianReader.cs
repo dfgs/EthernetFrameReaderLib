@@ -47,7 +47,24 @@ namespace BigEndianReaderLib
 			if (position >= buffer.Length - 7) throw new InvalidOperationException("End of buffer reached");
 			return ( ((ulong)buffer[position++] << 56) + ((ulong)buffer[position++] << 48) + ((ulong)buffer[position++] << 40) + ((ulong)buffer[position++] << 32) + ((ulong)buffer[position++] << 24) + ((ulong)buffer[position++] << 16) + ((ulong)buffer[position++] << 8) + (ulong)buffer[position++]);
 		}
+		public short ReadInt16()
+		{
+			if (position >= buffer.Length - 1) throw new InvalidOperationException("End of buffer reached");
+			return (short)((ushort)(buffer[position++] << 8) + (ushort)buffer[position++]);
+		}
 
+		
+		public int ReadInt32()
+		{
+			if (position >= buffer.Length - 3) throw new InvalidOperationException("End of buffer reached");
+			return (int)(((uint)buffer[position++] << 24) + ((uint)buffer[position++] << 16) + ((uint)buffer[position++] << 8) + (uint)buffer[position++]);
+		}
+
+		public long ReadInt64()
+		{
+			if (position >= buffer.Length - 7) throw new InvalidOperationException("End of buffer reached");
+			return (long)(((ulong)buffer[position++] << 56) + ((ulong)buffer[position++] << 48) + ((ulong)buffer[position++] << 40) + ((ulong)buffer[position++] << 32) + ((ulong)buffer[position++] << 24) + ((ulong)buffer[position++] << 16) + ((ulong)buffer[position++] << 8) + (ulong)buffer[position++]);
+		}
 		public string ReadString(int Length, Encoding Encoding)
 		{
 			string value;

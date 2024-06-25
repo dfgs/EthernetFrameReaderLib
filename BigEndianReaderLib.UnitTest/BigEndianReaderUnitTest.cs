@@ -34,7 +34,7 @@ namespace BigEndianReaderLib.UnitTest
 		}
 
 		[TestMethod]
-		public void ShouldNotReadUint16WhenEndOfBufferIsReached()
+		public void ShouldNotReadUInt16WhenEndOfBufferIsReached()
 		{
 			BigEndianReader reader;
 
@@ -46,7 +46,7 @@ namespace BigEndianReaderLib.UnitTest
 		}
 
 		[TestMethod]
-		public void ShouldReadUint16()
+		public void ShouldReadUInt16()
 		{
 			byte[] buffer = new byte[] {
 				1, 0, 
@@ -65,7 +65,7 @@ namespace BigEndianReaderLib.UnitTest
 
 
 		[TestMethod]
-		public void ShouldNotReadUint24WhenEndOfBufferIsReached()
+		public void ShouldNotReadUInt24WhenEndOfBufferIsReached()
 		{
 			BigEndianReader reader;
 
@@ -80,7 +80,7 @@ namespace BigEndianReaderLib.UnitTest
 		}
 
 		[TestMethod]
-		public void ShouldReadUint24()
+		public void ShouldReadUInt24()
 		{
 			byte[] buffer = new byte[] {
 				1, 0, 0,
@@ -100,7 +100,7 @@ namespace BigEndianReaderLib.UnitTest
 		}
 
 		[TestMethod]
-		public void ShouldNotReadUint32WhenEndOfBufferIsReached()
+		public void ShouldNotReadUInt32WhenEndOfBufferIsReached()
 		{
 			BigEndianReader reader;
 
@@ -118,7 +118,7 @@ namespace BigEndianReaderLib.UnitTest
 		}
 
 		[TestMethod]
-		public void ShouldReadUint32()
+		public void ShouldReadUInt32()
 		{
 			byte[] buffer = new byte[] {
 				1, 0, 0, 0,
@@ -142,7 +142,7 @@ namespace BigEndianReaderLib.UnitTest
 		}
 
 		[TestMethod]
-		public void ShouldNotReadUint64WhenEndOfBufferIsReached()
+		public void ShouldNotReadUInt64WhenEndOfBufferIsReached()
 		{
 			BigEndianReader reader;
 
@@ -171,7 +171,7 @@ namespace BigEndianReaderLib.UnitTest
 			Assert.ThrowsException<InvalidOperationException>(() => reader.ReadUInt64());
 		}
 		[TestMethod]
-		public void ShouldReadUint64()
+		public void ShouldReadUInt64()
 		{
 			byte[] buffer = new byte[] {
 				0, 0, 0, 0, 1, 0, 0, 0,
@@ -195,6 +195,149 @@ namespace BigEndianReaderLib.UnitTest
 
 			
 		}
+
+
+
+
+
+
+		[TestMethod]
+		public void ShouldNotReadInt16WhenEndOfBufferIsReached()
+		{
+			BigEndianReader reader;
+
+			reader = new BigEndianReader(new byte[] { });
+			Assert.ThrowsException<InvalidOperationException>(() => reader.ReadInt16());
+
+			reader = new BigEndianReader(new byte[] { 0 });
+			Assert.ThrowsException<InvalidOperationException>(() => reader.ReadInt16());
+		}
+
+		[TestMethod]
+		public void ShouldReadInt16()
+		{
+			byte[] buffer = new byte[] {
+				0xFF, 0xFF,
+				1, 1,
+				1, 2 ,
+				1, 3 ,
+			};
+			BigEndianReader reader;
+
+			reader = new BigEndianReader(buffer);
+			Assert.AreEqual((short)-1, reader.ReadInt16());
+			Assert.AreEqual((short)257, reader.ReadInt16());
+			Assert.AreEqual((short)258, reader.ReadInt16());
+			Assert.AreEqual((short)259, reader.ReadInt16());
+		}
+
+	
+
+		[TestMethod]
+		public void ShouldNotReadInt32WhenEndOfBufferIsReached()
+		{
+			BigEndianReader reader;
+
+			reader = new BigEndianReader(new byte[] { });
+			Assert.ThrowsException<InvalidOperationException>(() => reader.ReadInt32());
+
+			reader = new BigEndianReader(new byte[] { 0 });
+			Assert.ThrowsException<InvalidOperationException>(() => reader.ReadInt32());
+
+			reader = new BigEndianReader(new byte[] { 0, 0 });
+			Assert.ThrowsException<InvalidOperationException>(() => reader.ReadInt32());
+
+			reader = new BigEndianReader(new byte[] { 0, 0, 0 });
+			Assert.ThrowsException<InvalidOperationException>(() => reader.ReadInt32());
+		}
+
+		[TestMethod]
+		public void ShouldReadInt32()
+		{
+			byte[] buffer = new byte[] {
+				0xFF, 0xFF, 0xFF, 0xFF,
+				1, 0, 0, 1,
+				1, 0, 0, 2,
+				1, 0, 0, 3,
+				1, 1, 0, 0,
+				1, 1, 1, 0,
+				1, 1, 1, 1,
+			};
+			BigEndianReader reader;
+
+			reader = new BigEndianReader(buffer);
+			Assert.AreEqual(-1, reader.ReadInt32());
+			Assert.AreEqual(16777217, reader.ReadInt32());
+			Assert.AreEqual(16777218, reader.ReadInt32());
+			Assert.AreEqual(16777219, reader.ReadInt32());
+			Assert.AreEqual(16842752, reader.ReadInt32());
+			Assert.AreEqual(16843008, reader.ReadInt32());
+			Assert.AreEqual(16843009, reader.ReadInt32());
+		}
+
+		[TestMethod]
+		public void ShouldNotReadInt64WhenEndOfBufferIsReached()
+		{
+			BigEndianReader reader;
+
+			reader = new BigEndianReader(new byte[] { });
+			Assert.ThrowsException<InvalidOperationException>(() => reader.ReadInt64());
+
+			reader = new BigEndianReader(new byte[] { 0 });
+			Assert.ThrowsException<InvalidOperationException>(() => reader.ReadInt64());
+
+			reader = new BigEndianReader(new byte[] { 0, 0 });
+			Assert.ThrowsException<InvalidOperationException>(() => reader.ReadInt64());
+
+			reader = new BigEndianReader(new byte[] { 0, 0, 0 });
+			Assert.ThrowsException<InvalidOperationException>(() => reader.ReadInt64());
+
+			reader = new BigEndianReader(new byte[] { 0, 0, 0, 0 });
+			Assert.ThrowsException<InvalidOperationException>(() => reader.ReadInt64());
+
+			reader = new BigEndianReader(new byte[] { 0, 0, 0, 0, 0 });
+			Assert.ThrowsException<InvalidOperationException>(() => reader.ReadInt64());
+
+			reader = new BigEndianReader(new byte[] { 0, 0, 0, 0, 0, 0 });
+			Assert.ThrowsException<InvalidOperationException>(() => reader.ReadInt64());
+
+			reader = new BigEndianReader(new byte[] { 0, 0, 0, 0, 0, 0, 0 });
+			Assert.ThrowsException<InvalidOperationException>(() => reader.ReadInt64());
+		}
+		[TestMethod]
+		public void ShouldReadInt64()
+		{
+			byte[] buffer = new byte[] {
+				0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+				0, 0, 0, 0, 1, 0, 0, 1,
+				0, 0, 0, 0, 1, 0, 0, 2,
+				0, 0, 0, 0, 1, 0, 0, 3,
+				0, 0, 0, 0, 1, 1, 0, 0,
+				0, 0, 0, 0, 1, 1, 1, 0,
+				0, 0, 0, 0, 1, 1, 1, 1,
+			};
+			BigEndianReader reader;
+
+			reader = new BigEndianReader(buffer);
+			Assert.AreEqual(-1, reader.ReadInt64());
+			Assert.AreEqual(16777217, reader.ReadInt64());
+			Assert.AreEqual(16777218, reader.ReadInt64());
+			Assert.AreEqual(16777219, reader.ReadInt64());
+			Assert.AreEqual(16842752, reader.ReadInt64());
+			Assert.AreEqual(16843008, reader.ReadInt64());
+			Assert.AreEqual(16843009, reader.ReadInt64());
+
+
+		}
+
+
+
+
+
+
+
+
+
 
 
 		[TestMethod]

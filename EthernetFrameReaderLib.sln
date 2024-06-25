@@ -1,11 +1,11 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EthernetFrameReaderLib", "EthernetFrameReaderLib\EthernetFrameReaderLib.csproj", "{7F86EF1D-94C6-44DF-9C8F-4701ADA054FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EthernetFrameReaderLib", "EthernetFrameReaderLib\EthernetFrameReaderLib.csproj", "{7F86EF1D-94C6-44DF-9C8F-4701ADA054FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EthernetFrameReaderLib.UnitTest", "EthernetFrameReaderLib.UnitTest\EthernetFrameReaderLib.UnitTest.csproj", "{DF68B6E0-501A-4639-A0B0-F7BBC8DF7455}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EthernetFrameReaderLib.UnitTest", "EthernetFrameReaderLib.UnitTest\EthernetFrameReaderLib.UnitTest.csproj", "{DF68B6E0-501A-4639-A0B0-F7BBC8DF7455}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BigEndianReaderLib", "BigEndianReaderLib\BigEndianReaderLib.csproj", "{81E00843-B4F4-4A1C-A952-05330C453C52}"
 EndProject
