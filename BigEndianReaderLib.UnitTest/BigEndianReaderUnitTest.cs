@@ -360,7 +360,26 @@ namespace BigEndianReaderLib.UnitTest
 			Assert.AreEqual("abc", reader.ReadString(3,Encoding.ASCII));
 		}
 
+		[TestMethod]
+		public void ShouldNotReadBytesWhenEndOfBufferIsReached()
+		{
+			byte[] buffer = new byte[3];
+			BigEndianReader reader;
 
+			reader = new BigEndianReader(buffer);
+			Assert.ThrowsException<InvalidOperationException>(() => reader.ReadBytes(4));
+		}
+
+		[TestMethod]
+		public void ShouldReadBytes()
+		{
+			byte[] buffer = Encoding.ASCII.GetBytes("1abc");
+			BigEndianReader reader;
+
+			reader = new BigEndianReader(buffer);
+			reader.ReadByte(); // skip first
+			Assert.AreEqual("abc", Encoding.ASCII.GetString(reader.ReadBytes(3)));
+		}
 
 
 	}

@@ -73,6 +73,15 @@ namespace BigEndianReaderLib
 			position += Length;
 			return value;
 		}
+		public byte[] ReadBytes(int Count)
+		{
+			byte[] result;
+			if (position >= buffer.Length - Count+1) throw new InvalidOperationException("End of buffer reached");
+			result=buffer.Skip(position).Take(Count).ToArray();
+			position += Count;
+			return result;
+				
+		}
 
 
 	}
