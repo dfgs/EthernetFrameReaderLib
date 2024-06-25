@@ -4,6 +4,10 @@ namespace BigEndianReaderLib
 {
 	public interface IBigEndianReader
 	{
+		int Position
+		{
+			get;
+		}
 		byte ReadByte();
 		ushort ReadUInt16();
 		uint ReadUInt24();

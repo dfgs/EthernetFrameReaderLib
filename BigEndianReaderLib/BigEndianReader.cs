@@ -10,6 +10,10 @@ namespace BigEndianReaderLib
 	{
 		private int position;
 		private byte[] buffer;
+		public int Position
+		{
+			get => position;
+		}
 
 		public BigEndianReader(byte[] Buffer) 
 		{ 

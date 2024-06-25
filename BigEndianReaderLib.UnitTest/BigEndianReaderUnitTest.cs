@@ -31,6 +31,7 @@ namespace BigEndianReaderLib.UnitTest
 			Assert.AreEqual(1, reader.ReadByte());
 			Assert.AreEqual(2, reader.ReadByte());
 			Assert.AreEqual(3, reader.ReadByte());
+			Assert.AreEqual(4, reader.Position);
 		}
 
 		[TestMethod]
@@ -61,6 +62,7 @@ namespace BigEndianReaderLib.UnitTest
 			Assert.AreEqual((ushort)257, reader.ReadUInt16());
 			Assert.AreEqual((ushort)258, reader.ReadUInt16());
 			Assert.AreEqual((ushort)259, reader.ReadUInt16());
+			Assert.AreEqual(8, reader.Position);
 		}
 
 
@@ -97,6 +99,7 @@ namespace BigEndianReaderLib.UnitTest
 			Assert.AreEqual(65538u, reader.ReadUInt24());
 			Assert.AreEqual(65539u, reader.ReadUInt24());
 			Assert.AreEqual(65792u, reader.ReadUInt24());
+			Assert.AreEqual(15, reader.Position);
 		}
 
 		[TestMethod]
@@ -139,6 +142,7 @@ namespace BigEndianReaderLib.UnitTest
 			Assert.AreEqual(16842752u, reader.ReadUInt32());
 			Assert.AreEqual(16843008u, reader.ReadUInt32());
 			Assert.AreEqual(16843009u, reader.ReadUInt32());
+			Assert.AreEqual(28, reader.Position);
 		}
 
 		[TestMethod]
@@ -191,9 +195,10 @@ namespace BigEndianReaderLib.UnitTest
 			Assert.AreEqual(16777219u, reader.ReadUInt64());
 			Assert.AreEqual(16842752u, reader.ReadUInt64());
 			Assert.AreEqual(16843008u, reader.ReadUInt64());
-			Assert.AreEqual(16843009u, reader.ReadUInt64()); 
+			Assert.AreEqual(16843009u, reader.ReadUInt64());
 
-			
+			Assert.AreEqual(56, reader.Position);
+
 		}
 
 
@@ -229,9 +234,10 @@ namespace BigEndianReaderLib.UnitTest
 			Assert.AreEqual((short)257, reader.ReadInt16());
 			Assert.AreEqual((short)258, reader.ReadInt16());
 			Assert.AreEqual((short)259, reader.ReadInt16());
+			Assert.AreEqual(8, reader.Position);
 		}
 
-	
+
 
 		[TestMethod]
 		public void ShouldNotReadInt32WhenEndOfBufferIsReached()
@@ -273,6 +279,7 @@ namespace BigEndianReaderLib.UnitTest
 			Assert.AreEqual(16842752, reader.ReadInt32());
 			Assert.AreEqual(16843008, reader.ReadInt32());
 			Assert.AreEqual(16843009, reader.ReadInt32());
+			Assert.AreEqual(28, reader.Position);
 		}
 
 		[TestMethod]
@@ -326,6 +333,7 @@ namespace BigEndianReaderLib.UnitTest
 			Assert.AreEqual(16842752, reader.ReadInt64());
 			Assert.AreEqual(16843008, reader.ReadInt64());
 			Assert.AreEqual(16843009, reader.ReadInt64());
+			Assert.AreEqual(56, reader.Position);
 
 
 		}
@@ -358,6 +366,7 @@ namespace BigEndianReaderLib.UnitTest
 
 			reader = new BigEndianReader(buffer);
 			Assert.AreEqual("abc", reader.ReadString(3,Encoding.ASCII));
+			Assert.AreEqual(3, reader.Position);
 		}
 
 		[TestMethod]
@@ -379,6 +388,7 @@ namespace BigEndianReaderLib.UnitTest
 			reader = new BigEndianReader(buffer);
 			reader.ReadByte(); // skip first
 			Assert.AreEqual("abc", Encoding.ASCII.GetString(reader.ReadBytes(3)));
+			Assert.AreEqual(4, reader.Position);
 		}
 
 
